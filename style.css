@@ -1,146 +1,139 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background-image: url('images/bk.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn is ease-out;
+    height: 100vh;
+
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .container {
-    background-color: rgb(236, 236, 236);
-    height: 100vh;
-    width: 100%;
+
+    overflow: hidden;
+    position: relative;
 }
 
-.container .navbar {
+.todo {
     display: flex;
-    height: 12vh;
+    flex-direction: column;
+    border: black;
+    border-style: groove;
+    border-width: 0.1cm;
+    box-shadow: #555;
+
+    width: 35%;
+    background-color: #dedbe0;
+    margin: 150px 450px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+
+}
+
+.todo h2 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo h2 img {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    width: 65%;
-    margin: auto;
+    background-color: #edeef0;
+    margin-bottom: 25px;
+    border-radius: 30px;
+    padding-left: 20px;
 }
 
-.navbar .navlist {
-    display: flex;
-    gap: 3rem;
-
-}
-
-.navbar .logo {
-    color: black;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-
-.navlist li {
-    list-style: none;
-}
-
-.navlist a {
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: rgb(35, 35, 35);
-}
-
-.hero {
-    display: flex;
-    align-items: center;
-    height: calc(100vh-12vh);
-    width: 94%;
-    margin: auto;
-}
-
-.hero .content {
+input {
     flex: 1;
-    margin-top: 8rem;
-
-}
-
-.content h1 {
-    display: flex;
-    color: rgb(19, 19, 37);
-    font-size: 2.4rem;
-    line-height: 4.3rem;
-    margin-right: 5px;
-    text-align:initial;
-    text-transform: capitalize;
-}
-
-.content p {
-    color: rgb(35, 35, 35);
-    font-size: 1.1rem;
-    max-width: 85%;
-    margin: 1.8rem 0;
-
-}
-
-.content button {
-    background-color: rgb(19, 19, 37);
-    color: white;
-    font-size: 1.3rem;
-    padding: 1rem 2rem;
     border: none;
-    transition: 0.5s ease-in-out;
-
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
 }
 
-.content button:hover {
-    background-color: #924d37;
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 40px;
 }
 
-.hero .cards {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    flex: 2;
-}
-
-.cards .card {
-    width: 100%;
-    height: 30rem;
-    background-position: center;
-    background-size: cover;
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+    user-select: none;
     position: relative;
 
 }
 
-.cards :nth-child(1) {
-    margin-top: 6rem;
-    background-image: url(images/Dining\ Room.jpg);
-}
-
-.cards :nth-child(2) {
-    background-image: url(images/Blue\ Couch.jpg);
-}
-
-.cards :nth-child(3) {
-    margin-bottom: 6rem;
-    background-image: url(images/Living\ Room.jpg);
-}
-
-.container img {
-    height: 18rem;
+ul li::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 60px;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url('images/unchecked.png');
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+    color: black;
 }
 
-.card::before {
-    content: attr(card_num);
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url('images/checked.png');
+}
+
+ul li span {
     position: absolute;
-    top: -40px;
     right: 0;
-    color: #924d37;
-    font-size: 1.3rem;
-    font-weight: bolder;
-}
-.additional-content {
-    display: none;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
 }
 
-.additional-content.visible {
-    display: block;
+ul li span:hover {
+    background: #edeef0;
 }
